@@ -46,6 +46,8 @@ function App() {
     }
   ];
 
+  console.log(Medicine)
+
   console.log(Medicine.map((i) => {return i}));
 
   console.log(Medicine.filter((i) => i.expiry > 2022));
