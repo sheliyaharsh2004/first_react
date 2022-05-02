@@ -46,31 +46,38 @@ function App() {
     }
   ];
 
-  console.log(Medicine)
+  // Medicine.map((value ,index) => console.log (value.id , value.name));
 
-  console.log(Medicine.map((i) => {return i}));
+  let filterData = Medicine.filter((value ,index) => value.expiry >= 2022);
+  console.log(filterData);
 
-  console.log(Medicine.filter((i) => i.expiry > 2022));
-
-  
+  let ans=filterData.reduce((acc,value,index) => acc+ value.price ,0);
+  console.log(ans);
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React Hello
-        </a>
-      </header>
-    </div>
+    <>
+      <table>
+        <th>
+          <td>Id</td>
+          <td>Name</td>
+          <td>Price</td>
+          <td>Expiry</td>
+        </th>
+        {
+          filterData.map((valur , index) => {
+              return (
+                <tr>
+                  <td>{valur.id}</td>
+                  <td>{valur.name}</td>
+                  <td>{valur.price}</td>
+                  <td>{valur.expiry}</td>
+                </tr>
+              )
+            }
+          )
+        }
+      </table>
+    </>
   );
 }
 
