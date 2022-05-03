@@ -3,82 +3,39 @@ import './App.css';
 
 function App() {
 
-  const Medicine = [
-    {
-      id: 101,
-      name: 'Abacavir',
-      quantity: 25,
-      price: 150,
-      expiry: 2022,
-      status: true
-    },
-    {
-      id: 102,
-      name: 'Eltrombopag',
-      quantity: 90,
-      price: 550,
-      expiry: 2021,
-      status: true
-    },
-    {
-      id: 103,
-      name: 'Meloxicam',
-      quantity: 85,
-      price: 450,
-      expiry: 2025,
-      status: false
-    },
-    {
-      id: 104,
-      name: 'Allopurinol',
-      quantity: 50,
-      price: 600,
-      expiry: 2023,
-      status: true
-    },
-    {
-      id: 105,
-      name: 'Phenytoin',
-      quantity: 63,
-      price: 250,
-      expiry: 2021,
-      status: false
-    }
-  ];
+  //arr
+    // let arr= [10,20,30,40,50]; 
 
-  // Medicine.map((value ,index) => console.log (value.id , value.name));
+    // let arr1 = [...arr];  //copy
+    // console.log(arr1);
 
-  let filterData = Medicine.filter((value ,index) => value.expiry >= 2022);
-  console.log(filterData);
+    // let arr2= [99, ...arr ,100];  //merge
+    // console.log(arr2);
 
-  let ans=filterData.reduce((acc,value,index) => acc+ value.price ,0);
-  console.log(ans);
+    // let [mat ,eng ,guj ,ss ,sci] = arr;  //destructure
+    // console.log(guj);
+
+  //obj
+    let obj = {
+      id:101,
+      name:"harsh"
+    };
+
+    let obj1 = {...obj};   //copy
+    console.log(obj1);
+
+    let obj2 = {   
+      ...obj,
+      place :'surat',
+      name :"ajay"
+    };                     //merge   
+    console.log(obj2);
+
+    let {id, name} = obj;  //destructure
+    console.log(id,name);
 
   return (
     <>
-      <table border="1">
-        <tr>
-          <th>Id</th>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Expiry</th>
-          <th>total</th>
-        </tr>
-        {
-          filterData.map((valur , index) => {
-              return (
-                <tr>
-                  <td>{valur.id}</td>
-                  <td>{valur.name}</td>
-                  <td>{valur.price}</td>
-                  <td>{valur.expiry}</td>
-                  {index === 0 ? <td rowspan={Medicine.length}>{ans}</td> : null}
-                </tr>
-              )
-            }
-          )
-        }
-      </table>
     </>
   );
 }
