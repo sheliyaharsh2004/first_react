@@ -56,13 +56,14 @@ function App() {
 
   return (
     <>
-      <table>
-        <th>
-          <td>Id</td>
-          <td>Name</td>
-          <td>Price</td>
-          <td>Expiry</td>
-        </th>
+      <table border="1">
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Price</th>
+          <th>Expiry</th>
+          <th>total</th>
+        </tr>
         {
           filterData.map((valur , index) => {
               return (
@@ -71,6 +72,7 @@ function App() {
                   <td>{valur.name}</td>
                   <td>{valur.price}</td>
                   <td>{valur.expiry}</td>
+                  {index === 0 ? <td rowspan={Medicine.length}>{ans}</td> : null}
                 </tr>
               )
             }
