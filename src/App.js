@@ -3,39 +3,76 @@ import './App.css';
 
 function App() {
 
-  //arr
-    // let arr= [10,20,30,40,50]; 
+  const employee = [
+    {
+      name: "amit",
+      age: 35,
+      salary: 40000,
+      bonus: 1000,
+      status: true
+    },
+    {
+      name: "ajay",
+      age: 25,
+      salary: 38000,
+      bonus: 2000,
+      status: false
+    },
+    {
+      name: "mayur",
+      age: 23,
+      salary: 50000,
+      bonus: 500,
+      status: true
+    },
+    {
+      name: "jay",
+      age: 29,
+      salary: 35000,
+      bonus: 600,
+      status: true
+    },
+    {
+      name: "raj",
+      age: 33,
+      salary: 22000,
+      bonus: 2000,
+      status: true
+    }
+  ];
 
-    // let arr1 = [...arr];  //copy
-    // console.log(arr1);
+  let filterData = employee.filter((d) => d.status == true);
+  console.log(filterData);
 
-    // let arr2= [99, ...arr ,100];  //merge
-    // console.log(arr2);
+  let ans = filterData.reduce((acc,d,i) => acc+ d.salary+d.bonus,0);
+  console.log(ans);
 
-    // let [mat ,eng ,guj ,ss ,sci] = arr;  //destructure
-    // console.log(guj);
-
-  //obj
-    let obj = {
-      id:101,
-      name:"harsh"
-    };
-
-    let obj1 = {...obj};   //copy
-    console.log(obj1);
-
-    let obj2 = {   
-      ...obj,
-      place :'surat',
-      name :"ajay"
-    };                     //merge   
-    console.log(obj2);
-
-    let {id, name} = obj;  //destructure
-    console.log(id,name);
 
   return (
     <>
+      <table border="1">
+        <tr>
+          <th>Name</th>
+          <th>age</th>
+          <th>salary</th>
+          <th>bonus</th>
+          <th>total</th>
+        </tr>
+        {
+          filterData.map((value , index) => {
+              return (
+                <tr>
+                  <td>{value.name}</td>
+                  <td>{value.age}</td>
+                  <td>{value.salary}</td>
+                  <td>{value.bonus}</td>
+                  {index === 0 ? <td rowspan={employee.length}>{ans}</td> : null}
+                </tr>
+              )
+            }
+          )
+        }
+      </table>
     </>
   );
 }
