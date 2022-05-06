@@ -6,12 +6,14 @@ class Contry extends Component {
         super(props);
         
         this.state = {
-            Contry:'india'
+            Contry:'india',
+            PM:'Narendra Modi'
         };
     }
     changecontry = () => {
         this.setState({
-            Contry:'UK'
+            Contry:'UK',
+            PM:'Boris Johnson'
         })
     }
     
@@ -20,6 +22,8 @@ class Contry extends Component {
             <>
                 <div>
                     Contry :{this.state.Contry}
+                    <br/>
+                    PM:{this.state.PM}
                     </div>
                 <button onClick={() => this.changecontry()}>Change</button>
             </>

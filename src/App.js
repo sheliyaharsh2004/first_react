@@ -10,9 +10,10 @@ function App() {
   return (
     <>
       <Contry />
+      <br/><br/>
       <City />
 
-      <CountryFun />
+      <CountryFun gbpval={5.4}/>
       <CityFun />
     </>
   );
