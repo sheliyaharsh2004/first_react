@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
+import New_Citychange from './New_Citychange';
 
-function CountryFun(props) {
+function CountryFun({Gbpval}) {
 
     const [Country , setcountry] = useState('india');
     const [PM , setpm] = useState('Narendra Modi');
@@ -18,7 +19,9 @@ function CountryFun(props) {
             <button onClick={() => changecontry()}> change </button>
 
             <p> Gdp : {gdp} </p>
-            <button onClick={() => sectGdp(5.62)}> change gdp </button>
+            <button onClick={() => sectGdp(Gbpval)}> change gdp </button>
+
+            <New_Citychange famplace={Country} />
         </div>
     );
 }
