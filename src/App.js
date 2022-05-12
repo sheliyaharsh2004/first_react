@@ -6,6 +6,7 @@ import CountryFun from './container/contry/CountryFun';
 import CityFun from './container/contry/CityFun';
 import Branch from './container/contry/Branch';
 import Time from './container/Time/Time';
+import TimeFun from './container/Time/TimeFun';
 
 function App() {
 
@@ -20,7 +21,13 @@ function App() {
 
       {/* <Branch /> */}
 
+      <b>Component lifecycle</b>
       <Time />
+
+      <br></br>
+
+      <b>function based Component lifecycle</b>
+      <TimeFun />
 
     </>
   );

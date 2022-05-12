@@ -14,7 +14,7 @@ class Time extends Component {
         this.setState({
             time:new Date()
         })
-        console.log("Tick");
+        // console.log("Tick");
     }
     
     componentDidMount = () => {
@@ -23,7 +23,7 @@ class Time extends Component {
 
     componentDidUpdate = (prevProps , prevState) => {
         if (prevState.time !== this.state.time){
-            console.log("componentDidUpdate called")
+            // console.log("componentDidUpdate called")
         }
     }
 
