@@ -7,28 +7,37 @@ import CityFun from './container/contry/CityFun';
 import Branch from './container/contry/Branch';
 import Time from './container/Time/Time';
 import TimeFun from './container/Time/TimeFun';
+import { useEffect, useState } from 'react';
+import Home from './container/Home/Home';
+import Loading from './components/Loading/Loading';
 
 function App() {
 
+  const Loadingwithhome = Loading(Home)
+
+  const [loading , setloding] = useState(false);
+  const [Data, setData] = useState([]);
+
+  let orgData = [
+    {id:101, name:"ps"},
+    {id:102, name:"ai"}
+  ]
+
+  useEffect  (
+    () => {
+      setloding(true);
+      setTimeout(() => {setloding(false); setData(orgData)}, 2000);
+    },
+  [])
+
+  console.log(loading, Data);
+
   return (
     <>
-      {/* <Contry />
-      <br/><br/>
-      <City /> */}
-
-      {/* <CountryFun Gbpval={5.4}/> */}
-      {/* <CityFun /> */}
-
-      {/* <Branch /> */}
-
-      <b>Component lifecycle</b>
-      <Time />
-
-      <br></br>
-
-      <b>function based Component lifecycle</b>
-      <TimeFun />
-
+      <Loadingwithhome 
+        isloading ={loading}
+        data={Data}
+      />
     </>
   );
 }
