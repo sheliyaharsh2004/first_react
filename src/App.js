@@ -15,31 +15,8 @@ import Count from './container/Count';
 function App() {
 
   
-  const Loadingwithhome = Loading(Home)
-  
-  const [loading , setloding] = useState(false);
-  const [Data, setData] = useState([]);
-  
-  let orgData = [
-    {id:101, name:"ps"},
-    {id:102, name:"ai"}
-  ]
-
-  useEffect  (
-    () => {
-      setloding(true);
-      setTimeout(() => {setloding(false); setData(orgData)}, 2000);
-    },
-  [])
-  
-  console.log(loading, Data);
-  
   return (
     <>
-      <Loadingwithhome 
-        isloading ={loading}
-        data={Data}
-      />
     <Count />
     </>
   );
